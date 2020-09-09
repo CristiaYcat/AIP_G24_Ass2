@@ -1,0 +1,31 @@
+<div class="todos">
+  
+  <div>
+    <form (submit)="addFavor($event)">
+      <input [(ngModel)]="newFavor" (keyup.enter)="newFavor=''" class="textfield" name="newFavor">
+      <button type="submit" [disabled]="newFavor===''">Add Favor</button>
+    </form>
+  </div>
+
+  <div [hidden]="newFavor">
+    Type in a new favor...
+  </div>
+
+  <div [hidden]="!newFavor">
+    <!-- Another two-way binding example -->
+    Typing: {{ newFavor }}
+  </div>
+
+  <ul>
+    <li *ngFor="let favor of favors; let i=index">
+      <input type="checkbox" class="checkbox" [(ngModel)]="favor.completed" />
+      <span [ngClass]="{'checked': favor.completed}">{{ favor.newFavor }}</span>
+      <span (click)="deleteFavor(i)" class="delete-icon">[X]</span>
+    </li>
+  </ul>
+
+  <div class="mtop20">
+    <button (click)="deleteSelectedFavors()">Delete Selected</button>
+  </div>
+
+</div>
