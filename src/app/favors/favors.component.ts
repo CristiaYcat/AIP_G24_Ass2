@@ -6,22 +6,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./favors.component.css'],
 })
 export class FavorsComponent {
-  newFavor: string;
+  personYouOwe: any;
+  itemType: any;
+  comments: string;
   favors: any;
   favorObj: any;
 
   constructor() {
-    this.newFavor = '';
+    this.comments = '';
     this.favors = [];
   }
 
   addFavor(event) {
     this.favorObj = {
-      newFavor: this.newFavor,
+      personYouOwe: this.personYouOwe,
+      itemType: this.itemType,
+      comments: this.comments,
       completed: false,
     };
     this.favors.push(this.favorObj);
-    this.newFavor = '';
+    this.comments = '';
     event.preventDefault();
   }
 

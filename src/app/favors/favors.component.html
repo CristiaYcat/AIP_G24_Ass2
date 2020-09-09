@@ -1,25 +1,42 @@
 <div class="todos">
-  
-  <div>
-    <form (submit)="addFavor($event)">
-      <input [(ngModel)]="newFavor" (keyup.enter)="newFavor=''" class="textfield" name="newFavor">
-      <button type="submit" [disabled]="newFavor===''">Add Favor</button>
-    </form>
-  </div>
+  <form (submit)="addFavor($event)">
+    Person You Owe: 
+    <select [(ngModel)]="personYouOwe" name="personYouOwe" id="personYouOwe">
+      <option value="Alice">Alice</option>
+      <option value="Sam">Sam</option>
+      <option value="Jack">Jack</option>
+    </select>
+    <hr>
 
-  <div [hidden]="newFavor">
+    Item type: 
+    <select [(ngModel)]="itemType" name="itemType" id="itemType">
+      <option value="Coffee">Coffee</option>
+      <option value="Banana">Banana</option>
+      <option value="Hat">Hat</option>
+    </select>
+    <hr>
+
+    Comments:
+    <div>
+        <input [(ngModel)]="comments" (keyup.enter)="comments=''" class="textfield" name="comments">
+        <button type="submit" [disabled]="comments===''">Add Favor</button>
+    </div>
+  </form>
+
+  <div [hidden]="comments">
     Type in a new favor...
   </div>
 
-  <div [hidden]="!newFavor">
+  <div [hidden]="!comments">
     <!-- Another two-way binding example -->
-    Typing: {{ newFavor }}
+    Typing: {{ comments }}
   </div>
 
   <ul>
     <li *ngFor="let favor of favors; let i=index">
       <input type="checkbox" class="checkbox" [(ngModel)]="favor.completed" />
-      <span [ngClass]="{'checked': favor.completed}">{{ favor.newFavor }}</span>
+      <span
+        [ngClass]="{'checked': favor.completed}">{{ "You owe " + favor.personYouOwe + " a " + favor.itemType + " (" + favor.comments + ")" }}</span>
       <span (click)="deleteFavor(i)" class="delete-icon">[X]</span>
     </li>
   </ul>
