@@ -1,23 +1,39 @@
-<div>
-    <h1 style="text-align:center;">LOG IN</h1>
-    <table style="margin-left: auto; margin-right: auto;">
-      <tr>
-        <td>
-          <input placeholder="Name" [(ngModel)]="name"> Hint: Fei
-        </td>
-      </tr>
+<hr>
+<hr>
 
-      <tr>
-        <td>
-          <input placeholder="Password" [(ngModel)]="password"> Hint: 123
-        </td>
-      </tr>
+<div class="loginFrame" >
+    <table style="margin-left: auto; margin-right: auto; margin-top: auto; margin-bottom: auto;">
+        <tr>
+            <td>
+                <div>
+                    <h1>LOG IN</h1>
+                </div>
+            </td>
+        </tr>
 
-      <tr>
-        <td>
-          <button class="element" (click)="onClickCheck()">Login</button>
-        </td>
-      </tr>
+        <tr>
+            <td>
+                <div class="inputField">
+                    <input placeholder="Name" [(ngModel)]="name"> - Hint: Fei
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div class="inputField">
+                    <input placeholder="Password" [(ngModel)]="password"> - Hint: 123
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div class="loginButton" (click)="onClickCheck()">
+                    Login
+                </div>
+            </td>
+        </tr>
     </table>
 </div>
 
