@@ -1,0 +1,19 @@
+<div>
+    <ul [@carousel]='state'>
+      <li class='imgP' *ngFor= 'let img of imgs' (mouseenter)='stop()' (mouseleave)='start()'>
+        <div *ngIf= 'img.state'>
+          <img [src]="url+img.name" width="180px" height="101px">
+        </div>
+      </li>
+    </ul>
+    <div class='container'>
+        <div class= 'btn' (mouseenter)= 'stop()' (mouseleave)= 'start' >
+          <input type="button" value="back" (click)="back()">
+        </div>
+        <div class= 'circle' [class.color]='img.state' *ngFor= 'let img of imgs' (mouseenter)='circleEnter(img.id)' (mouseleave)='circleLeave()'>
+        </div>
+        <div class= 'btn' (mouseenter)='stop()' (mouseleave)='start()'>
+          <input type="button" value="go" (click)="go()">
+        </div>
+    </div>
+</div>
