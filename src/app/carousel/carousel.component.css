@@ -1,0 +1,40 @@
+ul{
+    position: relative;
+    height: 120px;
+    padding: 10px;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imgP{
+    position: absolute;
+    list-style: none;
+    width: 180px;
+    height: 101px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+.circle{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border:1px solid #000;
+    float: left;
+}
+.color{
+    background-color: aquamarine;
+}
+.btn input[type="button"]{
+    font-size: 0.9em;
+    color: #fff;
+    background: darkturquoise;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    -webkit-appearance: none;
+}
