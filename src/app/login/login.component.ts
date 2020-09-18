@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 
 interface QueryResult { 
   result: string;
-  tempstring: string;
 }
 
 @Component({
@@ -17,7 +16,6 @@ export class LoginComponent implements OnInit {
   name = '';
   password = '';
   result = '';
-  tempstring = '';
   url = `http://localhost:4000/result`;
 
   constructor(private http: HttpClient) {
@@ -33,16 +31,8 @@ export class LoginComponent implements OnInit {
     this.http.get(this.url).subscribe((data: QueryResult) => {
       alert('ok');
       this.result = data.result;
-      this.tempstring = data.tempstring;
     });
   }
-
-  // showTemp(): void {
-  //   this.http.post('/result', {}).subscribe((data: QueryResult) => {
-  //     this.result = data.result;
-  //     this.tempstring = data.tempstring;
-  //   });
-  // }
 
   onClickCheck(): void {
     if (

@@ -8,7 +8,6 @@ const port = 4000;
 const sqlite3 = require("sqlite3").verbose();
 
 let result = "";
-let tempstring = "hahahahaah";
 
 //open database in memory
 let db = new sqlite3.Database("./test.db", sqlite3.OPEN_READWRITE, (err) => {
@@ -40,8 +39,7 @@ db.close((err) => {
 
 app.get('/result', (_req, res) => {
     res.send({
-        result: result,
-        tempstring: tempstring
+        result: result
     });
 });
 
